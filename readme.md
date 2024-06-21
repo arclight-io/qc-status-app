@@ -10,6 +10,9 @@ QC-Status是一个去中心化的聊天室，采用Fediverse架构。
 4，在UCenter中添加该应用；\
 5，将config/uc_conf.php修改为您的UCenter应用配置；\
 6，修改config/portal/index.inc.html为您网站的门户；\
-7，完成安装，开始使用吧！\
+7，完成安装，开始使用吧！
 ## 版权声明
 Copyright 2024 © 碧蓝航线官方百合站（智慧眼科技股份有限公司），GNU AGPL 3.0 License。
+## 免责声明
+本程序是按原样提供的，开发者不对任何人使用本程序造成的任何后果承担责任。\
+严禁使用本程序从事违法违规活动。
