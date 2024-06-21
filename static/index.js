@@ -153,7 +153,7 @@
 	}
 	window.loginuid = 0;
 	function checkAccount(){
-		return lib_request("api/authapi?mod=check").then((e)=>{
+		return lib_request("api/authapi.php?mod=check").then((e)=>{
 			return JSON.parse(e.responseText);
 		}).then((v)=>{
 			if(v.result == null){
