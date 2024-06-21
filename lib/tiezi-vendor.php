@@ -21,7 +21,7 @@ class tieziVendor{
 			$table = $_G["Mysql"]["DBPrefix"]."tiezi";
 			$sql = <<<EOF
 INSERT INTO $table (domain,tid,sender,parent_domain,parent_tid,content_json,sendtime)
-VALUES ($domain,$tid,"$sender","$parentdomain",$parentid,"$icomment",$time);
+VALUES ("$domain",$tid,"$sender","$parentdomain",$parentid,"$icomment",$time);
 EOF;
 			$result = mysqli_query($dbConnect,$sql);
 		}
