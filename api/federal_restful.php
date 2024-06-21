@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 $_SERVER["USER_AGENT"] = "syser";
 define("IN_SITE",true);
 define('SITE_ROOT', substr(dirname(__FILE__), 0, -3));
