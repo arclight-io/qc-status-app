@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>QCSNS v5</title>
+		<script src="static/tiezi-vendor.js"></script>
+		<script src="static/index.js"></script>
+		<link rel="stylesheet" href="static/index.css"/>
+	</head>
+	<body>
+		<div style="width:1200px;margin:auto;">
+			<h1 id="slctitle" style="margin-top: 3px;margin-bottom: 5px;">-</h1>
+			<div style="background-color: cornflowerblue;color:white;padding:3px;">
+				<a href="?mod=index" onclick="return false;" id="indexer_alink" class="alinkc">
+					门户
+				</a>
+				<a href="?mod=global" onclick="return false;" id="sns_looker_alink" class="alinkc">
+					发现
+				</a>
+				<a href="?mod=account" onclick="return false;" id="account_alink" class="alinkc">
+					账户
+				</a>
+			</div>
+			<div>
+				<div id="indexer" style="display:none">
+					
+				</div>
+				<div id="sns_looker" style="display:none">
+					<div id="tie_send" style="display:none">
+						<textarea id="slativ" style="resize:none;width:calc(100% - 6px);height:200px;"></textarea><br/>
+						<button onclick="window.fsendtiezi();">发帖</button>
+						<hr/>
+					</div>
+					<div id="sns_looker_list"></div>
+					<div style="padding:2px;">
+						好像没有帖子了？
+						<button onclick="fetchTiezi()">加载更多帖子</button>
+						<button onclick="history.go(0);">刷新</button>
+					</div>
+				</div>
+				<div id="notfounds" style="display:none">
+					404 NOT FOUND.
+				</div>
+				<div id="userdisplay" style="display:none">
+					
+				</div>
+				<div id="tiezidisplay" style="display:none">
+					
+				</div>
+				<div id="account" style="display:none">
+					
+				</div>
+			</div>
+			<hr/>
+			Powered by QCStatus™ 开源分布式SNS框架<br/>
+			（Copyright 2024 © 碧蓝航线官方百合站（智慧眼科技股份有限公司），GNU AGPL 3.0 License.）
+			<iframe src="api/authapi.php?mod=sync" style="display:none"></iframe>
+			<iframe src="api/async_request.php" style="display:none"></iframe>
+		</div>
+	</body>
+</html>

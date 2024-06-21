@@ -1,0 +1,20 @@
+RewriteEngine on
+# Inistance
+RewriteRule qcstatus/server federal_restful.php?mod=server
+# Header
+RewriteRule qcstatus/user/([A-Za-z0-9]+)/header/(large|normal|small|bit) federal_restful.php?mod=user&uid=$1&tagix=image&size=$2
+RewriteRule qcstatus/user/([A-Za-z0-9]+)/header federal_restful.php?mod=user&uid=$1&tagix=image&size=normal
+# User Note
+RewriteRule qcstatus/user/([A-Za-z0-9]+)/note/p([0-9]+) federal_restful.php?mod=tiezi&page=$2&uid=$1
+RewriteRule qcstatus/user/([A-Za-z0-9]+)/note federal_restful.php?mod=tiezi&uid=$1
+RewriteRule qcstatus/note/user/([A-Za-z0-9]+)/p([0-9]+) federal_restful.php?mod=tiezi&uid=$1&page=$2
+RewriteRule qcstatus/note/user/([A-Za-z0-9]+) federal_restful.php?mod=tiezi&uid=$1
+# User
+RewriteRule qcstatus/user/([A-Za-z0-9]+) federal_restful.php?mod=user&uid=$1
+# Tiezi
+RewriteRule qcstatus/note/([0-9]+)/p([0-9]+) federal_restful.php?mod=tiezi&tid=$1&page=$2
+RewriteRule qcstatus/note/([0-9]+) federal_restful.php?mod=tiezi&tid=$1
+RewriteRule qcstatus/note/p([0-9]+) federal_restful.php?mod=tiezi&page=$1
+RewriteRule qcstatus/note federal_restful.php?mod=tiezi
+# Catcher
+RewriteRule qcstatus/ federal_restful.php
