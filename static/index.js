@@ -53,19 +53,21 @@
 				}
 			})
 			
-			lib_request("api/getTiezi.php?mod=subtalk&domain="+domain+"&tid="+tid).then((e)=>{
-				return JSON.parse(e.responseText);
-			}).then((v)=>{
-				for(ox in v.tiezi){
-					let ub = document.createElement("div");
-					let ax = decodeTiezi(v.tiezi[ox],true,true);
-					ax.style.padding = "2px";
-					ax.style.marginTop = "1px";
-					ub.appendChild(document.createElement("hr"));
-					ub.appendChild(ax);
-					qsc.appendChild(ub);
-				}
-			})
+			setTimeout(()=>{
+				lib_request("api/getTiezi.php?mod=subtalk&domain="+domain+"&tid="+tid).then((e)=>{
+					return JSON.parse(e.responseText);
+				}).then((v)=>{
+					for(ox in v.tiezi){
+						let ub = document.createElement("div");
+						let ax = decodeTiezi(v.tiezi[ox],true,true);
+						ax.style.padding = "2px";
+						ax.style.marginTop = "1px";
+						ub.appendChild(document.createElement("hr"));
+						ub.appendChild(ax);
+						qsc.appendChild(ub);
+					}
+				})
+			},Math.random()*500);
 			history.pushState('', '', "/?mod=note&domain="+domain+"&tid="+tid);
 		})
 	}
@@ -335,17 +337,19 @@
 			qs.appendChild(imgcdiv);
 			qs2.style.paddingLeft = "43px";
 			qs.appendChild(qs2);
-			lib_request("//"+tiezi["domain"]+"/api/qcstatus/user/"+tiezi["sender"]["note"]).then((e)=>{
-				return JSON.parse(e.responseText);
-			}).then((mx)=>{
-				if(mx.code == "404"){
-					return;
-				}
-				txt1.innerText = mx.user.displayname;
-				if(mx.user.headerimg != undefined && mx.user.headerimg != null){
-					imgc.src = mx.user.headerimg.normal;
-				}
-			});
+			setTimeout(()=>{
+				lib_request("//"+tiezi["domain"]+"/api/qcstatus/user/"+tiezi["sender"]["note"]).then((e)=>{
+					return JSON.parse(e.responseText);
+				}).then((mx)=>{
+					if(mx.code == "404"){
+						return;
+					}
+					txt1.innerText = mx.user.displayname;
+					if(mx.user.headerimg != undefined && mx.user.headerimg != null){
+						imgc.src = mx.user.headerimg.normal;
+					}
+				});
+			},Math.random()*700);
 			qs.onclick = loadUserDisplay.bind(null,tiezi["domain"],tiezi["sender"]["note"]);
 			return qs;
 		})())
@@ -374,18 +378,20 @@
 				q.innerText = "于 "+qtime+" 回复他人";
 				q.style.color = "#00A613";
 				q.appendChild(document.createElement("br"));
-				lib_request("api/selectTiezi.php?domain="+tiezi["parent"]["domain"]+"&tid="+tiezi["parent"]["tid"]).then((e)=>{
-					return JSON.parse(e.responseText);
-				}).then((v)=>{
-					if(v.code == -404){
-						q.innerText = "于 "+qtime+" 回复 null";
-						qh.innerText = "帖子不存在或实例不可达";
-						return;
-					}
-					qh.innerHTML = "";
-					qh.appendChild(decodeTiezi(v["tiezi"]));
-					q.innerText = "于 "+qtime+" 回复 "+btoa(v["tiezi"]["domain"] + "/" + v["tiezi"]["sender"]["note"]).replace(/=/g,"");
-				})
+				setTimeout(()=>{
+					lib_request("api/selectTiezi.php?domain="+tiezi["parent"]["domain"]+"&tid="+tiezi["parent"]["tid"]).then((e)=>{
+						return JSON.parse(e.responseText);
+					}).then((v)=>{
+						if(v.code == -404){
+							q.innerText = "于 "+qtime+" 回复 null";
+							qh.innerText = "帖子不存在或实例不可达";
+							return;
+						}
+						qh.innerHTML = "";
+						qh.appendChild(decodeTiezi(v["tiezi"]));
+						q.innerText = "于 "+qtime+" 回复 "+btoa(v["tiezi"]["domain"] + "/" + v["tiezi"]["sender"]["note"]).replace(/=/g,"");
+					})
+				},Math.random()*600);
 				if(ignoreParent){
 					qh.style.display = "none";
 				}

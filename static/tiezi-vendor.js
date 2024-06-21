@@ -17,11 +17,13 @@
 	
 	function _get_new_tiezi(page){
 		for (var i=0;i<=page;i++){
-			lib_request("api/getTiezi.php?page="+(page - i)).then((e)=>{
-				return JSON.parse(e.responseText)
-			}).then((v)=>{
-				window.tiezidb = Object.assign(window.tiezidb,v.tiezi);
-			})
+			setTimeout(()=>{
+				lib_request("api/getTiezi.php?page="+(page - i)).then((e)=>{
+					return JSON.parse(e.responseText)
+				}).then((v)=>{
+					window.tiezidb = Object.assign(window.tiezidb,v.tiezi);
+				})
+			},Math.random()*500)
 		}
 		if(window.tiezidb.length + 30 > page * 100){
 			window.get_new_tiezi = _get_new_tiezi.bind(null,page+1);
