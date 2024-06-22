@@ -37,7 +37,6 @@
 			qsc.style.marginTop = "3px";
 			qsc.padding = "2px";
 			qsc.appendChild(decodeTiezi(v["tiezi"],false));
-			console.log(window.loginuid);
 			let rav = document.createElement("div");
 			qsc.appendChild(rav);
 			checkAccount().then(()=>{
