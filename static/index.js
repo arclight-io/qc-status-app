@@ -158,7 +158,7 @@
 		}).then((v)=>{
 			if(v.result == null){
 				window.loginuid = 0;
-				document.getElementById("tie_send").display = "none";
+				document.getElementById("tie_send").style.display = "none";
 				document.getElementById("account").innerHTML = `
 <h2 style="display:inline">登录</h2>
 <table>
@@ -189,7 +189,7 @@
 				document.getElementById("account").appendChild(qc);
 			} else {
 				window.loginuid = Number(v.result.uc_uid);
-				document.getElementById("tie_send").display = "block";
+				document.getElementById("tie_send").style.display = "block";
 				document.getElementById("account").innerHTML = "";
 				let cwe = document.createElement("div");
 				cwe.appendChild((()=>{
