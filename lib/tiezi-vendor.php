@@ -68,7 +68,7 @@ EOF;
 		$icomment = addslashes(json_encode($content));
 		$domain = addslashes($_G["Site"]["SiteDomain"]);
 		$time = time();
-		$tid = mt_rand(0,9).mt_rand(0,65535).$time.mt_rand(100,999);
+		$tid = mt_rand(0,6).mt_rand(0,65535).$time.mt_rand(10,99);
 		$table = $_G["Mysql"]["DBPrefix"]."tiezi";
 		$sql = <<<EOF
 INSERT INTO $table (domain,tid,sender,parent_domain,parent_tid,content_json,sendtime)

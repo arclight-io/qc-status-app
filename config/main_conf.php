@@ -21,7 +21,10 @@ $_G["Site"]["SiteDomain"] = "<域名>";
 
 //Federation config
 $_G["Federation"]["Pairs"] = array(
-	"chatsns.yz666.eu.org"
-	"blhx.yz666.eu.org"
+	"chatsns.yz666.eu.org",
+	"blhx.yz666.eu.org",
+	"vocaloid.yz666.eu.org",
+	"minecraft.yz666.eu.org",
+	"fedi.77234399.xyz"
 ); //其他服务器的地址，用于去中心化连接
 ?>
